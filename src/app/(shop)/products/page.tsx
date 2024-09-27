@@ -77,13 +77,13 @@ export default function Products() {
     
     return (
         <div>
-            <h1>Products</h1>
+            <h1 className="my-4 text-center font-semibold underline text-2xl">Products</h1>
             <div className="flex flex-row justify-center flex-wrap gap-2">
                 {products.products.map((value) => (
-                    <div key={Math.random()} className="p-2 flex flex-col grow border-2 border-black">
-                        <img src={value.images[0]} alt={`Image of ${value.title}`} className="w-28" />
+                    <div key={Math.random()} className="p-2 w-40 flex flex-col justify-center text-center shadow hover:bg-slate-300 hover:cursor-pointer">
+                        <img src={value.images[0]} alt={`Image of ${value.title}`} className="object-contain size-36" />
                         <p>{value.title}</p>
-                        <p>{value.price}</p>
+                        <p>${value.price}</p>
                     </div>
                 ))}
             </div>

@@ -65,7 +65,7 @@ export default function useFetch(URL: string) {
         "total": 194,
         "skip": 0,
         "limit": 30
-      });
+    });
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
