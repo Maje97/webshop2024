@@ -36,6 +36,8 @@ jobs:
                     
       - name: Download a Build Artifact    
         uses: actions/download-artifact@v4.1.8
+        with:
+            path: ./out
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3.0.1
