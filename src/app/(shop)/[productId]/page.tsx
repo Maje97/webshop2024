@@ -1,17 +1,11 @@
-import useFetch from "@/src/hooks/useFetch";
-import React from "react";
+"use client";
 
-export async function generateStaticParams() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { data } = useFetch("https://dummyjson.com/products");
-   
-  return data.products.map((prod) => ({
-    productId: prod.id,
-  }))
-}
+import { productArray } from "@/src/components/providers";
+import React from "react";
+import { useContext } from "react";
 
 export default function ProductPage({ params }: {params: {productId: string | number}}) {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { productId } = params; 
-    return <h1>Product {params.productId}</h1>
+    const products = useContext(productArray);
+
+  return <h1>Product {products.products[Number(params.productId)].title}</h1>
 }
