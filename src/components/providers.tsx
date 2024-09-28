@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext } from "react";
 import useFetch from "../hooks/useFetch";
 import { productI } from "./interfaces";
