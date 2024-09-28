@@ -1,13 +1,11 @@
-"use client";
-
-import { useContext } from "react";
-import { productArray } from "@/src/components/providers";
+import useFetch from "@/src/hooks/useFetch";
+import React from "react";
 
 export async function generateStaticParams() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const products = useContext(productArray);
+  const { data } = useFetch("https://dummyjson.com/products");
    
-  return products.products.map((prod) => ({
+  return data.products.map((prod) => ({
     productId: prod.id,
   }))
 }
