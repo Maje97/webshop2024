@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import AddButton from "@/src/components/AddButton";
 import { productArray } from "@/src/components/providers";
 import React from "react";
 import { useContext } from "react";
@@ -15,6 +16,7 @@ export default function ProductPage({ params }: {params: {productId: string | nu
       <img src={product.images[0]} alt={`Image of ${product.title}`} className="object-contain size-96"/>
       <p className="m-8">{product.description}</p>
       <p>${product.price}</p>
+      <AddButton id={params.productId} />
     </div>
   )
 }
