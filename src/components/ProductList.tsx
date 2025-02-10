@@ -1,16 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useContext } from "react"
+import React from "react"
 import { useRouter } from "next/navigation";
-import { productArray } from "@/src/components/providers";
+import useFetch from "../hooks/useFetch";
+import { productListI } from "./interfaces";
 
 export default function ProductList() {
-    const products = useContext(productArray);
+    const { data } = useFetch<productListI>('https://dummyjson.com/products');
     const router = useRouter();
 
     return (
         <div className="flex flex-row justify-center flex-wrap gap-2">
-            {products.products.map((value) => (
+            {data?.products.map((value) => (
                 <div 
                     key={Math.random()} 
                     className="p-2 w-40 flex flex-col justify-center text-center shadow hover:bg-slate-300 hover:cursor-pointer" 

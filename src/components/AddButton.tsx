@@ -1,14 +1,13 @@
 "use client";
 
-import { productArray } from "@/src/components/providers";
 import React from "react";
-import { useContext } from "react";
+import useFetch from "../hooks/useFetch";
+import { productI } from "./interfaces";
 
 export default function AddButton({ id }: { id: string | number }) {
-    const products = useContext(productArray);
-    const product = products.products[Number(id) - 1];
+    const { data } = useFetch<productI>(`https://dummyjson.com/products/${id}`);
 
     return (
-        <button>Add to cart</button>
+        <button onClick={() => console.log(data)}>Add to cart</button>
     )
 }
